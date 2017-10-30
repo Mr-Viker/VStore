@@ -1,0 +1,56 @@
+<%- include('./components/header.html') %>
+
+<body class="type-page page-has-nav page-has-tab">
+<%- include('./components/navbar.html') %>
+
+    <div class="weui-tab">
+        <!-- 导航栏 -->
+        <div id="cate-list" class="weui-navbar"></div>
+
+        <div class="weui-tab__bd">
+            <div id="tab-content" class="weui-tab__bd-item weui-tab__bd-item--active"></div>
+
+            <!-- Loading -->
+            <div class="weui-loadmore">
+                <i class="weui-loading"></i>
+                <span class="weui-loadmore__tips">正在加载</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 类型列表模板 -->
+    <script id='cate-list-temp' type="text/x-dot-template">
+        <a href="#tab-content" class="tab-item weui-navbar__item {{= it.id == 0 ? 'weui-bar__item--on' : ''}}" data-type='{{= it.id}}'>{{= it.cate_name}}</a>
+    </script>
+
+    <!-- 商品列表模板 -->
+    <script id="tab-content-temp" type="text/x-dot-template">
+        <a href="/goodsDetail?goodsId={{= it.id}}" class="panel weui-panel weui-media-box weui-media-box_appmsg">
+            <div class="panel-hd weui-media-box__hd">
+                <img class="weui-media-box__thumb" src="{{= it.thumb || '/public/img/cake.jpg'}}">
+            </div>
+            <div class="panel-bd weui-media-box__bd">
+                <h4 class="title">{{= it.title || ''}}</h4>
+                <p class="price weui-media-box__desc">￥{{= it.price || '价格待定'}}</p>
+                <p class="sub weui-media-box__desc">
+                    <span>{{= it.freight || '免邮费'}}</span>
+                    <span>{{= it.paid_num || '0'}}人付款</span>
+                    <span>{{= it.address || ''}}</span>
+                </p>
+            </div>
+        </a>
+    </script>
+
+
+    <%- include('./components/tabbar.html')%>
+    <script>
+        $(function() {
+            $('#nav-title').html('全部分类 - Fake商城');
+            $('#nav-btn-search').removeClass('hide');
+            $(".tabbar .weui-tabbar__item").eq(1).addClass('weui-bar__item_on');
+        })
+    </script>
+    <script src='/public/js/type.js'></script>
+</body>
+</html>

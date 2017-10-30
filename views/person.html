@@ -1,0 +1,117 @@
+<%- include('./components/header.html') %>
+
+<body class="person-page page-has-nav page-has-tab">
+<%- include('./components/navbar.html') %>
+
+    <!-- 未登录页面 -->
+    <div class="hide" id="page-no-login">
+        <div class="page-hd">
+            <div class="weui-media-box weui-media-box_appmsg">
+                <div class="weui-media-box__hd img-container">
+                    <img src="/public/img/avatar-default.png" class="weui-media-box__thumb">
+                </div>
+                <div class="hd-text weui-media-box__bd">
+                    <a href="/login">【登录】</a>
+                    <a href="/register">【注册】</a>
+                </div>
+            </div>
+        </div>
+        <div class="page-bd">
+            <ul class="page-list">
+                <li class="weui-row">
+                    <div class="tile weui-media-box_appmsg">
+                        <div class="weui-media-box__hd">
+                            <i class="iconfont icon-lianxikefu weui-media-box__thumb"></i>
+                        </div>
+                        <div class="weui-media-box__bd">
+                            <h4 class="weui-media-box__title">联系客服</h4>
+                            <p class="weui-media-box__desc">点击联系客服</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 已登录页面 -->
+    <div class="hide" id="page-has-login">
+        <!-- 用户信息 -->
+        <div id="user" class="page-hd"></div>
+        <script id="user-temp" type="text/x-dot-template">
+            <div class="weui-media-box weui-media-box_appmsg">
+                <div class="weui-media-box__hd img-container">
+                    <a href="/personalData?id={{= it.id}}"><img src="{{= it.avatar || '/public/img/avatar-default.png'}}" class="weui-media-box__thumb"></a>
+                </div>
+                <div class="hd-text weui-media-box__bd">
+                    <p>{{= it.nickname || '昵称'}}</p>
+                    <p><span>{{= it.phone}}</span><button type="button" id="btn-logout" class="weui-btn weui-btn_warn weui-btn_mini">退出登录</button></p>
+                    <p><span class="hd-text-id">ID：{{= it.id || ''}}</span></p>
+                    <p>金币：{{= it.amount || '0.00'}}</p>
+                </div>
+            </div>
+        </script>
+
+        <div class="page-bd">
+            <ul class="page-list">
+                <li class="weui-row">
+                    <div class="tile weui-media-box weui-media-box_appmsg">
+                        <div class="weui-media-box__hd">
+                            <i class="iconfont icon-lianxikefu weui-media-box__thumb"></i>
+                        </div>
+                        <div class="weui-media-box__bd">
+                            <h4 class="weui-media-box__title">参与记录</h4>
+                            <p class="weui-media-box__desc">你的参与记录</p>
+                        </div>
+                    </div>
+                    <div class="tile weui-media-box weui-media-box_appmsg">
+                        <div class="weui-media-box__hd">
+                            <i class="iconfont icon-lianxikefu weui-media-box__thumb"></i>
+                        </div>
+                        <div class="weui-media-box__bd">
+                            <h4 class="weui-media-box__title">奖品记录</h4>
+                            <p class="weui-media-box__desc">您的奖品记录</p>
+                        </div>
+                    </div>
+                    <div class="tile weui-media-box weui-media-box_appmsg">
+                        <div class="weui-media-box__hd">
+                            <i class="iconfont icon-lianxikefu weui-media-box__thumb"></i>
+                        </div>
+                        <div class="weui-media-box__bd">
+                            <h4 class="weui-media-box__title">账户记录</h4>
+                            <p class="weui-media-box__desc">您的账户记录</p>
+                        </div>
+                    </div>
+                    <div class="tile weui-media-box weui-media-box_appmsg">
+                        <div class="weui-media-box__hd">
+                            <i class="iconfont icon-lianxikefu weui-media-box__thumb"></i>
+                        </div>
+                        <div class="weui-media-box__bd">
+                            <h4 class="weui-media-box__title">分站入口</h4>
+                            <p class="weui-media-box__desc">奋战员工后台</p>
+                        </div>
+                    </div>
+                    <div class="tile weui-media-box weui-media-box_appmsg">
+                        <div class="weui-media-box__hd">
+                            <i class="iconfont icon-lianxikefu weui-media-box__thumb"></i>
+                        </div>
+                        <div class="weui-media-box__bd">
+                            <h4 class="weui-media-box__title">联系客服</h4>
+                            <p class="weui-media-box__desc">点击联系客服</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <%- include('./components/tabbar.html')%>
+    <script>
+        $(function() {
+            $('#nav-title').html('我的 - Fake商城');
+            $(".tabbar .weui-tabbar__item").eq(3).addClass('weui-bar__item_on');
+        })
+    </script>
+    <script src='/public/js/person.js'></script>
+</body>
+</html>

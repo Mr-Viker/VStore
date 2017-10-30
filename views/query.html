@@ -1,0 +1,62 @@
+<%- include('./components/header.html') %>
+
+<body class="query-page page-has-nav page-has-tab">
+<%- include('./components/navbar.html') %>
+
+    <div class="page-banner"><img src="/public/img/query-banner.png"></div>
+
+    <div class="page-bd">
+        <form id="orderIdForm">
+            <div class="weui-cells__title">按订单号查询：</div>
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label for="orderId" class="weui-label">订单号</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input type="tel" class="weui-input" placeholder="请输入订单号">
+                    </div>
+                </div>
+            </div>
+            <div class="weui-btn-area">
+                <input type="submit" class="weui-btn weui-btn_primary" value="查询">
+            </div>
+        </form>
+
+        <form id="orderNameForm">
+            <div class="weui-cells__title">按用户信息查询：</div>
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label for="nickname" class="weui-label">姓名</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input type="text" class="weui-input" placeholder="请输入收货人姓名">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label for="phone" class="weui-label">密码</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input type="tel" class="weui-input" placeholder="请输入收货人手机号">
+                    </div>
+                </div>
+            </div>
+            <div class="weui-btn-area">
+                <input type="submit" class="weui-btn weui-btn_primary" value="查询">
+            </div>
+        </form>
+    </div>
+
+
+    <%- include('./components/tabbar.html')%>
+    
+    <script>
+        $(function() {
+            $('#nav-btn-back').removeClass('hide');
+            $('#nav-title').html('订单查询');
+        })
+    </script>
+</body>
+</html>

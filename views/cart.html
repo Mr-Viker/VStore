@@ -1,0 +1,113 @@
+<%- include('./components/header.html') %>
+
+<body class="cart-page page-has-nav page-has-tab">
+<%- include('./components/navbar.html') %>
+
+    <!-- 未登录显示 -->
+    <div id="page-no-login" class="hide weui-msg">
+        <div class="weui-msg__icon-area"><i class="weui-icon-info weui-icon_msg"></i></div>
+        <div class="weui-msg__text-area">
+            <p class="weui-msg__desc">登录账号才能看到购物车喔^_^</p>
+        </div>
+        <div class="weui-msg__opr-area">
+            <p class="weui-btn-area">
+                <a href="/login" class="weui-btn weui-btn_mini weui-btn_primary">马上登录</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- 已登录显示 -->
+    <div id="page-has-login" class="hide">
+        <!-- 购物车 -->
+        <div id="cart-list" class="cart"></div>
+        <script id='cart-list-temp' type="text/x-dot-template">
+            <div class="panel weui-panel weui-media-box weui-media-box_appmsg">
+                <div class="panel-checkbox weui-cells weui-cells_checkbox">
+                    <label class="weui-cell weui-check__label">
+                        <div class="weui-cell__hd">
+                            <input type="checkbox" name="selectedGoods[]" class="selected-goods weui-check" {{= it.is_checked ? 'checked' : ''}} data-id={{= it.id}}>
+                            <i class="weui-icon-checked"></i>
+                        </div>
+                    </label>
+                </div>
+                <a href="/goodsDetail?goodsId=5" class="panel-main weui-media-box_appmsg">
+                    <div class="panel-hd weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="{{= it.goods && it.goods.thumb || '/public/img/cake.jpg'}}">
+                    </div>
+                    <div class="panel-bd weui-media-box__bd">
+                        <h4 class="title">{{= it.goods && it.goods.title || ''}}</h4>
+                        <p class="weui-media-box__desc">{{= it.goods && it.goods.desc || ''}}</p>
+                        <p class="sub weui-media-box__desc">
+                            <span class="price">￥{{= it.goods && it.goods.price || '0.00'}}</span>
+                            <span>X{{= it.goods_num || '0'}}</span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </script>
+
+        <!-- 空购物车时显示 -->
+        <div class="cart-empty hide weui-cell">
+            <img src="/public/img/cart.empty.png">
+            <p class="weui-media-box__desc">购物车空空如也，赶紧逛逛吧</p>
+        </div>
+
+        <!-- 喜好推荐 -->
+        <div class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+            <span class="weui-loadmore__tips"></span>
+            <span class="weui-loadmore__tips">你可能喜欢</span>
+            <span class="weui-loadmore__tips"></span>
+        </div>
+        <!-- 可能喜欢的商品列表 -->
+        <div id="recommend-goods-list" class="weui-row"></div>
+        <script id="recommend-goods-list-temp" type="text/x-dot-template">
+            <a href="/goodsDetail?goodsId={{= it.id}}" class="card weui-col-50">
+                <img src="{{= it.thumb || '/public/img/cake.jpg'}}">
+                <p class="title">{{= it.title || '南瓜'}}</p>
+                <p class="sub"><span class="rate">好评率：{{= it.favorable_rate || '100%'}}</span><span class="price">￥{{= it.price || '0.00'}}</span></p>
+            </a>
+        </script>
+
+        <!-- Loading -->
+        <div class="weui-loadmore">
+            <i class="weui-loading"></i>
+            <span class="weui-loadmore__tips">正在加载</span>
+        </div>
+
+        <div class="bottom-bar weui-cells">
+            <div class="weui-cell">
+                <div class="bar-hd weui-cell__hd">
+                    <div class="weui-cells weui-cells_checkbox">
+                        <label class="weui-cell weui-check__label">
+                            <div class="checkbox-container weui-cell__hd">
+                                <input type="checkbox" id="select-all" class="weui-check">
+                                <i class="weui-icon-checked"></i>
+                                全选
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="total-price-container weui-cell__bd">合计：￥<span id="total-price">21.90</span></div>
+                <div class="weui-cell__ft">
+                    <button id="btn-to-settlement" class="weui-btn weui-btn_warn">去结算</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include('./components/tabbar.html')%>
+    <script>
+        $(function() {
+            $('#nav-title').html('购物车 - Fake商城');
+            // 如果是从商品详情页点击购物车跳转的 则显示back btn
+            if (document.referrer.includes('goodsDetail')) {
+                $('#nav-btn-back').removeClass('hide');
+            }
+            $('#nav-btn-search').removeClass('hide');
+            $(".tabbar .weui-tabbar__item").eq(2).addClass('weui-bar__item_on');
+        })
+    </script>
+    <script src='/public/js/cart.js'></script>
+</body>
+</html>

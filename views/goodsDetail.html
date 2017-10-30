@@ -1,0 +1,75 @@
+<%- include('./components/header.html') %>
+<link rel="stylesheet" type="text/css" href="/public/css/swiper.css">
+
+<body class="goods-detail-page page-has-nav page-has-tab">
+    <%- include('./components/navbar.html')%>
+
+    <div id="goods-detail"></div>
+    <!-- 商品详情模板 -->
+    <script id="goods-detail-temp" type="text/x-dot-template">
+        <div class="page-hd">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {{~ it.imgs:img:index}}
+                        <img class="swiper-slide" src="{{= img || ''}}" alt="">
+                    {{~}}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="page-bd">
+            <div class="main">
+                <p class="title">{{= it.title || ''}}</p>
+                <p class="price">￥{{= it.price || '0.00'}}</p>
+                <p class="desc">{{= it.desc || ''}}</p>
+                <p class="sub"><span>好评率：{{= it.favorable_rate || '100%'}}</span><span>剩余{{= it.amount || '0'}}件</span></p>
+            </div>
+            <div class="weui-cells tips">
+                <div class="weui-cell text-center">
+                    <div class="weui-flex__item"><i class="iconfont icon-zhengpin"></i>正品保障</div>
+                    <div class="weui-flex__item"><i class="iconfont icon-shandianfahuo"></i>闪电发货</div>
+                    <div class="weui-flex__item"><i class="iconfont icon-jiayipeishi"></i>假一赔十</div>
+                </div>
+            </div>
+
+            <div class="weui-cells">
+                <a href="#" class="weui-cell weui-cell_access">
+                    <div class="weui-cell__hd">
+                        <label for="btn-show-picker" class="weui-label">已选数量</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input type="text" name="goods_num" class="weui-input" id="btn-show-picker" value="{{= it.amount > 0 ? 1 : ''}}">
+                    </div>
+                    <div class="weui-cell__ft"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="page-ft-fixed weui-tabbar">
+            <a href="/cart" class="weui-tabbar__item">
+                <div class="icon-container weui-tabbar__icon">
+                    <span id="cart-sum" class="weui-badge hide"></span>
+                    <i class="iconfont icon-cart_blod"></i>
+                </div>
+                <div class="weui-tabbar__label">购物车</div>
+            </a>
+            <a id="btn-add-cart" class="weui-tabbar__item weui-btn weui-btn_primary">
+                加入购物车
+            </a>
+            <a id="btn-settlement" class="weui-tabbar__item weui-btn weui-btn_warn">
+                立即购买
+            </a>
+        </div>
+    </script>
+
+
+    <script>
+        $('#nav-btn-back').removeClass('hide');
+        $('#nav-title').html('商品详情');
+    </script>
+    <script src='/public/js/swiper.jquery.js'></script>
+    <script src='/public/js/goodsDetail.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<%- include('./components/header.html') %>
+
+<body class="personal-data-page page-has-nav">
+<%- include('./components/navbar.html') %>
+
+    <div id="user-info"></div>
+    <!-- 个人资料模板 -->
+    <script type="text/x-dot-template" id="user-info-temp">
+        <form id="personal-data-form" name="personalDataForm">
+            <input type="text" id="id" name="id" value="{{= it.id || ''}}" hidden>
+            <input type="hidden" name="avatar" id="avatar">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <div class="weui-uploader__file">
+                            <img class="img-upload" src="{{= it.avatar || '/public/img/avatar-default.png'}}">
+                        </div>
+                        <div class="weui-uploader__input-box">
+                            <input type="file" accept="image/*" class="btn-upload weui-uploader__input" data-name='avatar' multiple>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label for="id" class="weui-label">ID</label>
+                    </div>
+                    <div class="weui-cell__bd disabled">
+                        <span>{{= it.id}}</span>
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label for="nickname" class="weui-label">昵称</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input type="text" id="nickname" name="nickname" class="weui-input" placeholder="请输入昵称" value="{{= it.nickname || ''}}">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label for="phone" class="weui-label">手机号</label>
+                    </div>
+                    <div class="weui-cell__bd disabled">
+                        <span>{{= it.phone}}</span>
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label for="address" class="weui-label">收货地址</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input type="text" class="weui-input" placeholder="请输入收货地址">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-ft-fixed">
+                <button type="button" class="weui-btn" id="btn-back">返 回</button>
+                <input type="submit" class="weui-btn weui-btn_primary" value="保 存">
+            </div>
+        </form>
+    </script>
+
+
+    <script>
+        $(function() {
+            $('#nav-btn-back').removeClass('hide');
+            $('#nav-title').html('个人资料');
+        })
+    </script>
+    <script src='/public/js/upload.js'></script>
+    <script src='/public/js/personalData.js'></script>
+</body>
+</html>

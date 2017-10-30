@@ -1,0 +1,138 @@
+<%- include('./components/header.html') %>
+<link rel="stylesheet" type="text/css" href="/public/css/swiper.css">
+
+<body class="index-page page-has-nav page-has-tab">
+    <%- include('./components/navbar.html') %>
+
+    <div class="page-hd">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <a href="#" class="swiper-slide"><img src="/public/img/index-banner-0.jpg" alt=""></a>
+                <a href="#" class="swiper-slide"><img src="/public/img/index-banner-1.jpg" alt=""></a>
+                <a href="#" class="swiper-slide"><img src="/public/img/index-banner-2.jpg" alt=""></a>
+                <a href="#" class="swiper-slide"><img src="/public/img/index-banner-3.jpg" alt=""></a>
+                <a href="#" class="swiper-slide"><img src="/public/img/index-banner-4.jpg" alt=""></a>
+                <a href="#" class="swiper-slide"><img src="/public/img/index-banner-5.jpg" alt=""></a>
+                <a href="#" class="swiper-slide"><img src="/public/img/index-banner-6.jpg" alt=""></a>
+                <a href="#" class="swiper-slide"><img src="/public/img/index-banner-7.jpg" alt=""></a>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <div class="page-bd">
+        <img class="jumb" src="/public/img/jumb.jpg">
+
+        <!-- Type -->
+        <div class="weui-tabbar bar-static">
+            <a href="#" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/img/type-market.png">
+                </div>
+                <p class="weui-tabbar__label">超市</p>
+            </a>
+            <a href="#" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/img/type-cloth.png">
+                </div>
+                <p class="weui-tabbar__label">服装</p>
+            </a>
+            <a href="#" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/img/type-food.png">
+                </div>
+                <p class="weui-tabbar__label">水果</p>
+            </a>
+            <a href="#" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                    <img src="/public/img/type-wuliu.png">
+                </div>
+                <p class="weui-tabbar__label">物流</p>
+            </a>
+        </div>
+
+        <img class="jumb" src="/public/img/jumb-1.jpg">
+        <!-- msg-swiper -->
+        <div class="weui-cell swiper-msg-container">
+            <div class="weui-cell__hd"><img src="/public/img/volume.png" width="20"></div>
+            <div class="weui-cell__bd">
+                <div class="swiper-container-2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">兵不血刃消灭小强，就靠它了！</div>
+                        <div class="swiper-slide">现在几点？ </div>
+                        <div class="swiper-slide">iphone8机模开箱上手</div>
+                        <div class="swiper-slide">尖货轮番秒</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 即将揭晓 -->
+        <!-- <div class="weui-row card-container">
+            <a href="#" class="card weui-col-auto">
+                <div><img src="/public/img/banner.png"></div>
+                <p><span class="weui-btn weui-btn_mini">立即加入</span></p>
+            </a>
+            <a href="#" class="card weui-col-auto">
+                <div><img src="/public/img/banner.png"></div>
+                <p><span class="weui-btn weui-btn_mini">立即加入</span></p>
+            </a>
+            <a href="#" class="card weui-col-auto">
+                <div><img src="/public/img/banner.png"></div>
+                <p><span class="weui-btn weui-btn_mini">立即加入</span></p>
+            </a>
+        </div> -->
+        <!-- 已揭晓-swiper -->
+        <div class="swiper-container-3">
+            <div class="swiper-wrapper">
+                <a href="#" class="swiper-slide weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img src="/public/img/user.png" alt="" width="60" height="60">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <p class="weui-media-box__title">恭喜用户小可爱</p>
+                        <p class="weui-media-box__title">用7元购得100元商品</p>
+                        <p class="weui-media-box__desc"><span class="weui-btn weui-btn_mini">5人团</span></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- 热门推荐 -->
+        <div class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+            <span class="weui-loadmore__tips"></span>
+            <span class="weui-loadmore__tips">热门推荐</span>
+            <span class="weui-loadmore__tips"></span>
+        </div>
+
+        <div id="goods-list" class="weui-row"></div>
+        <!-- 商品模板 -->
+        <script id='goods-list-temp' type="text/x-dot-template">
+            <a href="/goodsDetail?goodsId={{= it.id}}" class="card weui-col-50">
+                <img src="{{= it.thumb || '/public/img/banner.png'}}">
+                <p class="title">{{= it.title || '南瓜'}}</p>
+                <p class="sub"><span class="rate">好评率：{{= it.favorable_rate || '100%'}}</span><span class="price">￥{{= it.price || '0.00'}}</span></p>
+            </a>
+        </script>
+
+        <!-- Loading -->
+        <div class="weui-loadmore">
+            <i class="weui-loading"></i>
+            <span class="weui-loadmore__tips">正在加载</span>
+        </div>
+    </div>
+
+
+
+    <%- include('./components/tabbar.html')%>
+    <script>
+        $(function() {
+            $('#nav-title').html('首页 - Fake商城');
+            $('#nav-btn-search').removeClass('hide');
+            $(".tabbar .weui-tabbar__item").eq(0).addClass('weui-bar__item_on');
+        })
+    </script>
+    <script src='/public/js/swiper.jquery.js'></script>
+    <script src='/public/js/index.js'></script>
+</body>
+</html>

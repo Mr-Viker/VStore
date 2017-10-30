@@ -1,0 +1,328 @@
+@import 'variable';
+
+
+html {
+    height: 100%;
+    font-size: $font-size !important;
+    background-color: $common-bgc;
+    @media (min-width: 375px) {
+        font-size: $font-size-lg !important;
+    }
+}
+body {
+    font-size: 1rem;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Cover weui css */
+.weui-cells {
+    font-size: 1rem;
+}
+.weui-label {
+    width: 60px;
+    text-align: left;
+    padding-right: 10px;
+}
+.weui-btn {
+    font-size: 1rem;
+}
+.weui-btn_primary {
+    background-color: $primary;
+}
+.weui-btn_primary:not(.weui-btn_disabled):active {
+  background-color: $primary;
+}
+.weui-loadmore_line .weui-loadmore__tips {
+    background-color: $common-bgc;
+}
+
+// tabbar
+.weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon, 
+.weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon > i, 
+.weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {
+    color: $primary;
+}
+.tabbar {
+    position: fixed !important;
+}
+
+// navbar
+.weui-navbar__item {
+    font-size: 1rem;
+    &:after {
+        border: none;
+    }
+}
+.weui-navbar__item.weui-bar__item--on {
+    background-color: #fff;
+    color: $primary;
+    border-bottom: 2px solid $primary;
+}
+.weui-toast {
+    width: 10rem;
+    padding-bottom: 15px;
+    .weui-toast_content {
+        font-size: 1.16rem;
+    }
+}
+
+
+/* public css */
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+.hide {
+    display: none !important;
+}
+.show {
+    display: block !important;
+}
+
+
+/* bar */
+.navbar {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $primary;
+    color: #fff;
+    // border-bottom: 1px solid #e5e5e5;
+    .weui-cell {
+        box-sizing: border-box;
+        height: 45px;
+    }
+    .iconfont {
+        color: #fff;
+    }
+    #nav-btn-search i {
+        font-size: 18px;
+    }
+    #nav-title {
+        font-size: 1.16rem;
+    }
+}
+
+
+.page-has-nav {
+    padding-top: 45px !important;
+
+    .weui-toptips {
+        top: 45px !important;
+    }
+}
+.page-has-tab {
+    padding-bottom: 55px !important;
+}
+
+.page-banner {
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+.page-ft-fixed {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    .page-ft-cell {
+        padding: 0 0 0 15px;
+    }
+    .weui-btn {
+        font-size: 1.28rem;
+        border-radius: 0;
+        margin: 0;
+    }
+}
+
+/* card */
+.card {
+    display: inline-block;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px #ddd;
+    font-size: 1.16rem;
+    // .weui-btn {
+    //     margin-top: 5px;
+    //     font-size: 1rem;
+    //     border-radius: 3px;
+    //     background-color: $primary;
+    // }
+    .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: break-word;
+        padding: 5px 5px 4px;
+        height: 33px;
+        font-size: 13px;
+        line-height: 17px;
+        color: #000;
+    }
+    .sub {
+        padding: 0 5px 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .rate,
+    .price {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1;
+    }
+    .rate {
+        color: $deep-gray;
+        font-size: 1rem;
+        transform: scale(0.8) translate(-10%);
+
+    }
+    .price {
+        color: $red;
+    }
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/* panel */
+.panel {
+    box-sizing: border-box;
+    height: 125px;
+    padding: 12px 10px;
+    border-top: 1px solid $light-gray;
+    border-bottom: 1px solid $light-gray;
+    .panel-hd {
+        width: 100px;
+        height: 100px;
+
+    }
+    .panel-bd {
+        box-sizing: border-box;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: break-word;
+        padding: 5px 5px 4px;
+        height: 33px;
+        font-size: 14px;
+        line-height: 18px;
+        color: #000;
+        font-size: 14px;
+    }
+    .price {
+        color: $red;
+        font-size: 16px;
+    }
+    .sub {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+    }
+    img {
+        display: block;
+        width: 100%;
+        max-height: 100%;
+    }
+
+    .panel-checkbox {
+        width: 50px;
+        height: 100%;
+        text-align: center;
+        line-height: 70px;
+        margin-top: 0;
+        margin-right: 5px;
+        &:before,
+        &:after {
+            border: none;
+        }
+        .weui-check__label {
+            justify-content: center;
+        }
+    }
+    .panel-main {
+        flex: 1;
+        height: 100%;
+    }
+}
+
+
+/* Form */
+input[disabled],
+.disabled {
+    color: #888;
+}
+
+.upload-img-container.hide-input {
+    float: none;
+    margin: 0 auto;
+    border: none;
+    &:before,
+    &:after {
+        width: 0;
+        height: 0;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+}
+
+
+/* circle img */
+.img-circle {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+
+/* swiper */
+.swiper-pagination {
+    .swiper-pagination-bullet-active {
+        background: #fff;
+    }
+    .swiper-pagination-bullet {
+        background-color: #fff;
+    }
+}

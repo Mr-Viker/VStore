@@ -1,0 +1,53 @@
+<%- include('./components/header.html') %>
+
+<body class="login-page page-has-nav">
+<%- include('./components/navbar.html') %>
+
+    <div class="page-bd weui-msg">
+        <form id="login-form" name="loginForm" autocomplete="off">
+            <div class="weui-msg__icon-area">
+                <img class="img-circle" src="/public/img/avatar-default.png">
+            </div>
+            <div class="weui-msg__text-area">
+                <div class="weui-cells input-area">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <label for="phone" class="weui-label">手机号</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <input type="tel" name="phone" class="weui-input" placeholder="请输入手机号码">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <label for="password" class="weui-label">密码</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <input type="password" name="password" class="weui-input" placeholder="请输入密码">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-msg__opr-area weui-btn-area">
+                <input type="submit" value="登 录" class="weui-btn weui-btn_primary">
+            </div>
+        </form>
+        <div class="weui-cell btn-link">
+            <div class="weui-cell__hd">
+                <a href="/forgetPassword" class="weui-cell_link">忘记密码</a>
+            </div>
+            <div class="weui-cell__ft">
+                <a href="/register" class="weui-cell_link">前去注册</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function() {
+            $('#nav-btn-back').removeClass('hide');
+            $('#nav-title').html('登 录');
+        })
+    </script>
+    <script src='/public/js/login.js'></script>
+</body>
+</html>

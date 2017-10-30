@@ -1,0 +1,33 @@
+<footer class="weui-tabbar tabbar">
+    <a href="/" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon"><i class="iconfont icon-home"></i></div>
+        <p class="weui-tabbar__label">首页</p>
+    </a>
+    <a href="/type" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon"><i class="iconfont icon-sifangge"></i></div>
+        <p class="weui-tabbar__label">分类</p>
+    </a>
+    <a href="/cart" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon"><i class="iconfont icon-cart_blod"></i></div>
+        <p class="weui-tabbar__label">购物车</p>
+    </a>
+    <a href="/person" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon"><i class="iconfont icon-icon"></i></div>
+        <p class="weui-tabbar__label">我的</p>
+    </a>
+</footer>
+
+<!-- <script>
+    var globalUser;
+    
+    $(function() {
+        checkLogin(function(res) {
+            if (res.status == 1) {
+                globalUser = res.data;
+                $('#tab-person').attr('href', '/person');
+            } else {
+                $('#tab-person').attr('href', '/login');
+            }
+        });
+    })
+</script> -->

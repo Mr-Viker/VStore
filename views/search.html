@@ -1,0 +1,62 @@
+<%- include('./components/header.html') %>
+
+<body class="search-page page-has-nav">
+<%- include('./components/navbar.html') %>
+
+    <div class="weui-search-bar">
+        <form id="search-form" class="weui-search-bar__form">
+            <div class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input type="search" name="search" class="weui-search-bar__input" placeholder="搜索">
+                <a class="weui-icon-clear"></a>
+            </div>
+            <label class="weui-search-bar__label">
+                <i class="weui-icon-search"></i>
+                <span>搜索</span>
+            </label>
+        </form>
+        <button type="submit" form="search-form" class="btn-search"><i class="iconfont icon-chaxun"></i></button>
+        <!-- <a class="btn-search"><i class="iconfont icon-chaxun"></i></a> -->
+    </div>
+
+    <div class="page-bd">
+        <div id="goods-list"></div>
+
+        <!-- Loading -->
+        <div class="weui-loadmore hide">
+            <i class="weui-loading"></i>
+            <span class="weui-loadmore__tips">正在加载</span>
+        </div>
+    </div>
+
+    <!-- 商品列表模板 -->
+    <script id='goods-list-temp' type="text/x-dot-template">
+        <a href="/goodsDetail?goodsId={{= it.id}}" class="panel weui-panel weui-media-box weui-media-box_appmsg">
+            <div class="panel-hd weui-media-box__hd">
+                <img class="weui-media-box__thumb" src="{{= it.thumb || '/public/img/cake.jpg'}}">
+            </div>
+            <div class="panel-bd weui-media-box__bd">
+                <h4 class="title">{{= it.title || ''}}</h4>
+                <p class="price weui-media-box__desc">￥{{= it.price || '价格待定'}}</p>
+                <p class="sub weui-media-box__desc">
+                    <span>{{= it.freight || '免邮费'}}</span>
+                    <span>{{= it.paid_num || '0'}}人付款</span>
+                    <span>{{= it.address || ''}}</span>
+                </p>
+            </div>
+        </a>
+    </script>
+
+    <!-- <div class="page-ft-fixed">
+        <button type="submit" form="search-form" class="weui-btn weui-btn_primary">搜 索</button>
+    </div> -->
+
+    <script>
+        $(function() {
+            $('#nav-btn-back').removeClass('hide');
+            $('#nav-title').html('搜  索');
+        })
+    </script>
+    <script src='/public/js/search.js'></script>
+</body>
+</html>

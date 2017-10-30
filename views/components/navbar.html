@@ -1,0 +1,19 @@
+<nav class="navbar">
+    <div class="weui-cell">
+        <div class="weui-cell__hd hide" id="nav-btn-back"><i class="iconfont icon-back"></i></div>
+        <h4 class="weui-cell__bd text-center" id="nav-title"></h4>
+        <a href="/search" class="weui-cell__ft hide" id="nav-btn-search"><i class="iconfont icon-chaxun"></i></a>
+    </div>
+</nav>
+
+<script>
+    // navbar back btn
+    $(function() {
+        $('#nav-btn-back').on('click', function() {
+            history.back();
+        })
+        $('#nav-title').on('click', function() {
+            $(document.body).animate({scrollTop: 0}, 300);
+        })
+    })
+</script>

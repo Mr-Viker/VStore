@@ -1,0 +1,78 @@
+<%- include('./components/header.html') %>
+
+<body class="settlement-page page-has-nav">
+    <%- include('./components/navbar.html')%>
+    
+    <div class="page-hd">
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">
+                    <p>
+                        <span>Viker</span>
+                        <span>132****7640</span>
+                    </p>
+                    <p>
+                        <i class="iconfont icon-flyme_icon-"></i>
+                        <span>广东广州市天河区东圃大浦商贸园4栋118号</span>
+                    </p>
+                </div>
+                <div class="weui-cell__ft"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-bd">
+        <div class="order-container">
+            <div class="order-panel panel weui-panel weui-media-box weui-media-box_appmsg">
+                <div class="panel-hd weui-media-box__hd">
+                    <img src="/public/img/cake.jpg" alt="" class="weui-media-box__thumb">
+                </div>
+                <div class="panel-bd weui-media-box__bd">
+                    <h4 class="weui-media-box__title">很好很好的商品喔</h4>
+                    <p class="weui-media-box__desc">x1</p>
+                    <p class="price weui-media-box__desc">￥29.80</p>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">配送方式</div>
+                <div class="weui-cell__bd text-right">快递 免邮</div>
+            </div>
+        </div>
+
+        <div class="order-container">
+            <div class="order-panel panel weui-panel weui-media-box weui-media-box_appmsg">
+                <div class="panel-hd weui-media-box__hd">
+                    <img src="/public/img/cake.jpg" alt="" class="weui-media-box__thumb">
+                </div>
+                <div class="panel-bd weui-media-box__bd">
+                    <h4 class="weui-media-box__title">很好很好的商品喔</h4>
+                    <p class="weui-media-box__desc">x1</p>
+                    <p class="price weui-media-box__desc">￥29.80</p>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">配送方式</div>
+                <div class="weui-cell__bd text-right">快递 免邮</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="order-page-ft page-ft-fixed weui-cells">
+        <div class="page-ft-cell weui-cell">
+            <div class="weui-cell__bd">
+                共 <span class="amount">2</span> 件, 
+                总价 <span class="amount">￥</span><span class="total-price">467.00</span>
+            </div>
+            <div class="weui-cell__ft">
+                <button id="btn-submit" class="weui-btn weui-btn_primary">提交订单</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $('#nav-btn-back').removeClass('hide');
+        $('#nav-title').html('填写订单');
+    </script>
+</body>
+</html>
